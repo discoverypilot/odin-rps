@@ -36,7 +36,7 @@ function getHumanChoice() {
   let choice = "";
 
   // prompt user
-  choice = window.prompt("rock, paper, or scissors?");
+  choice = window.prompt("Rock, paper, scissors, shoot!");
   
   // normalize to lowercase
   choice = choice.toLowerCase();
@@ -46,27 +46,25 @@ function getHumanChoice() {
 
 // play a round: compare choices & increment winner score
 function playRound(humanChoice, computerChoice) {
-  // display choices
-  console.log("you: " + humanChoice);
-  console.log("computer: " + computerChoice);
-
+  
   // compare choices to decide winner
   if (humanChoice === computerChoice) {
-    console.log("you tied.");
+    console.log("You tied. You and computer both chose " + humanChoice + ".");
   }
   else if (humanChoice === "rock" && computerChoice === "scissors" ||
            humanChoice === "paper" && computerChoice === "rock" || 
            humanChoice === "scissors" && computerChoice === "paper") {
-    console.log("you win!");
+    console.log("You win! Your " + humanChoice + " beats computer's " + computerChoice + ".");
     humanScore++;
   }
   else if (humanChoice === "rock" && computerChoice === "paper" ||
            humanChoice === "paper" && computerChoice === "scissors" || 
            humanChoice === "scissors" && computerChoice === "rock") {
-    console.log("you lose.");
+    console.log("You lose. Computer's " + computerChoice + " beats your " + humanChoice + ".");
     computerScore++;
   }
   else {
     console.log("Error deciding a winner.");
   }
+  
 }

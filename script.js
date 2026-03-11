@@ -1,3 +1,7 @@
+// score variables
+let humanScore = 0;
+let computerScore = 0; 
+
 // testing
 console.log(getHumanChoice());
 console.log(getComputerChoice());

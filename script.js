@@ -19,3 +19,13 @@ function getComputerChoice() {
   }
   return choice;
 }
+
+// prompt user for input & return input (assumes all inputs are valid)
+function getHumanChoice() {
+  let choice = "";
+
+  // prompt user
+  choice = window.prompt("rock, paper, or scissors?");
+
+  return choice;
+}

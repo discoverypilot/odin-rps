@@ -1,13 +1,5 @@
-// score variables
-let humanScore = 0;
-let computerScore = 0; 
-
-// choice variables
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
 // testing
-playRound(humanSelection, computerSelection);
+playGame();
 
 // return random value of rock, paper, or scissors
 function getComputerChoice() {
@@ -44,27 +36,49 @@ function getHumanChoice() {
   return choice;
 }
 
-// play a round: compare choices & increment winner score
-function playRound(humanChoice, computerChoice) {
+function playGame() {
+  // score variables
+  let humanScore = 0;
+  let computerScore = 0; 
+  let winner = "";
+  let round = 1;
+
+  // loop to play 5 rounds
+  for (round = 1; round <= 5; round++) {playRound();}  
   
-  // compare choices to decide winner
-  if (humanChoice === computerChoice) {
-    console.log("You tied. You and computer both chose " + humanChoice + ".");
-  }
-  else if (humanChoice === "rock" && computerChoice === "scissors" ||
-           humanChoice === "paper" && computerChoice === "rock" || 
-           humanChoice === "scissors" && computerChoice === "paper") {
-    console.log("You win! Your " + humanChoice + " beats computer's " + computerChoice + ".");
-    humanScore++;
-  }
-  else if (humanChoice === "rock" && computerChoice === "paper" ||
-           humanChoice === "paper" && computerChoice === "scissors" || 
-           humanChoice === "scissors" && computerChoice === "rock") {
-    console.log("You lose. Computer's " + computerChoice + " beats your " + humanChoice + ".");
-    computerScore++;
-  }
-  else {
-    console.log("Error deciding a winner.");
-  }
+  // decide winner by comparing scores
+  if (humanScore > computerScore) {winner = "you";}
+  else if (computerScore > humanScore) {winner = "computer";}
+  else if (computerScore === humanScore) {winner = "none"}
+  else {console.log("Error determining the winner of the set.")}
   
+  // display final score/winner
+  console.log("score (you-cpu): " + humanScore + "-" + computerScore);
+  console.log("winner: " + winner + "!");
+
+  // function: play one round, compare choices & increment winner score
+  function playRound() {
+    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice();
+
+    // compare choices to decide winner
+    if (humanChoice === computerChoice) {
+      console.log("Round " + round + ": " + "You tied. You and computer both chose " + humanChoice + ".");
+    }
+    else if (humanChoice === "rock" && computerChoice === "scissors" ||
+            humanChoice === "paper" && computerChoice === "rock" || 
+            humanChoice === "scissors" && computerChoice === "paper") {
+      console.log("Round " + round + ": " + "You win! Your " + humanChoice + " beats computer's " + computerChoice + ".");
+      humanScore++;
+    }
+    else if (humanChoice === "rock" && computerChoice === "paper" ||
+            humanChoice === "paper" && computerChoice === "scissors" || 
+            humanChoice === "scissors" && computerChoice === "rock") {
+      console.log("Round " + round + ": " + "You lose. Computer's " + computerChoice + " beats your " + humanChoice + ".");
+      computerScore++;
+    }
+    else {
+      console.log("Error deciding a winner.");
+    }
+  }
 }

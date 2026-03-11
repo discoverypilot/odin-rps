@@ -1,3 +1,7 @@
+// testing
+console.log(getHumanChoice());
+console.log(getComputerChoice());
+
 // return random value of rock, paper, or scissors
 function getComputerChoice() {
   let randomNumber = Math.floor((Math.random()*3) + 1); // random number btwn 1-3

@@ -1,6 +1,29 @@
-// testing
-playGame();
+/* ---------------- TESTING ------------------ */
+// playGame();
 
+/* ------------- USER INTERFACE -------------- */
+const RPSButtons = document.querySelector('.RPSButtons');
+
+RPSButtons.addEventListener('click', (Event) => {
+  Event.preventDefault();
+  let target = Event.target;
+  let choice = -1;
+
+  switch(target.id) {
+    case 'btnRock':
+      choice = 0;
+      break;
+    case 'btnPaper':
+      choice = 1;
+      break;
+    case 'btnScissors':
+      choice = 2;
+      break;
+  }
+  console.log(choice);
+});
+
+/* --------------- GAME LOGIC ---------------- */
 function getComputerChoice() {
   let randomNumber = Math.floor((Math.random()*3));
   let choice = "";

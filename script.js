@@ -2,21 +2,21 @@
 playGame();
 
 function getComputerChoice() {
-  let randomNumber = Math.floor((Math.random()*3) + 1);
+  let randomNumber = Math.floor((Math.random()*3));
   let choice = "";
 
   switch (randomNumber) {
-    case 1:
+    case 0:
       choice = "rock";
       break;
-    case 2:
+    case 1:
       choice = "paper";
       break;
-    case 3:
+    case 2:
       choice = "scissors";
       break;
     default:
-      console.log("Error: randomNumber outside expected range.");
+      console.log("Error: RPS choice outside expected range.");
   }
   return choice;
 }

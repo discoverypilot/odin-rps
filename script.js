@@ -1,3 +1,23 @@
+/* 
+general outline so my structure isnt ass
+
+game screen:
+- title: rock paper scissors
+- text: make your move!
+- 3 buttons: rock, paper, scissors
+  - show on each new round
+  - hide after move selection (in eventListener
+    switch case)
+- round result div
+  - show player move, cpu move, result, scores
+  - clear at the end of each round
+- running score div
+  - keep score here
+  - when a score reaches 5:
+    - announce winner
+    - display play again button (refreshes game)
+*/
+
 /* ---------------- TESTING ------------------ */
 // playGame();
 

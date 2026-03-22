@@ -8,10 +8,32 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="RPSButtons">
-    <button id="btnRock" class="RPSButton">ROCK!</button>
-    <button id="btnPaper" class="RPSButton">PAPER!</button>
-    <button id="btnScissors" class="RPSButton">SCISSORS!</button>
+  <div id="wrapper">
+    <h1>ROCK PAPER SCISSORS!</h1>
+    <div id="gameWindow">
+      <div id="move">
+        <p>Make your move:</p>
+        <div id="buttons">
+          <button id="rock"><img src="resources/rock.png" alt="">ROCK</button>
+          <button id="paper"><img src="resources/paper.png" alt="">PAPER</button>
+          <button id="scissors"><img src="resources/scissors.png" alt="">SCISSORS</button>
+        </div>
+      </div>
+
+      <div id="results">
+        <p>You chose: <img src="resources/rock.png" alt="" class="rockimg"> <span class="rockTxt">ROCK</span></p>
+        <p>Computer chose: <img src="resources/paper.png" alt="" class="paperimg"> <span class="paperTxt">PAPER</span></p>
+        <p>Computer wins!</p>
+      </div>
+
+      <div id="score">
+        <p>Your score: 0</p>
+        <p>Computer's score: 5</p>
+        <p>You lose 0-5! Try again?</p>
+        <button id="retry"><img src="resources/retry.png" alt="" id="retryimg">retry</button>
+      </div>      
+    </div>
+    <p id="credit">icons by icons8</p>
   </div>
 </body>
 </html>

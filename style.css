@@ -115,10 +115,6 @@ p {
   pointer-events: none;
 }
 
-#results img {
-  width: 18px;
-}
-
 .rockTxt {
   color: teal;
   font-weight: bold;
@@ -153,6 +149,7 @@ p {
 #retryBtn img {
   width: 32px;
   order: -1;
+  pointer-events: none;
 }
 
 @keyframes shift {

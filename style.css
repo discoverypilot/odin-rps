@@ -15,6 +15,10 @@
   src: url(resources/Gaegu-Light.ttf);
 }
 
+* {
+ font-family: "main";
+}
+
 body {
   background-image: url("resources/bg.png");
   background-size: 128px;
@@ -22,10 +26,6 @@ body {
   animation-iteration-count: infinite;
   margin: 0px;
   min-height: 100vh;
-}
-
-* {
- font-family: "main";
 }
 
 h1, #credit {
@@ -74,6 +74,8 @@ p {
 
 #buttons {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 

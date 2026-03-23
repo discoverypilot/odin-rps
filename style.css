@@ -9,8 +9,18 @@
   src: url(resources/Gaegu-Bold.ttf);
 }
 
-html {
-  background-image: url("");
+@font-face {
+  font-family: "main";
+  font-weight: lighter;
+  src: url(resources/Gaegu-Light.ttf);
+}
+
+body {
+  background-image: url("resources/bg.png");
+  background-size: 128px;
+  animation: shift 10s linear;
+  animation-iteration-count: infinite;
+  margin: 0px;
 }
 
 * {
@@ -37,7 +47,7 @@ p {
 }
 
 #gameWindow {
-  background-color:aliceblue;
+  background-color: snow;
   width: 600px;
   text-align: center;
   padding: 20px;
@@ -128,4 +138,12 @@ p {
 
 #retryimg {
   width: 32px;
+}
+
+@keyframes shift {
+  from {background-position: 0px 0px;}
+  to {background-position: 128px 128px;}
+
+  from {backdrop-filter: hue-rotate(0deg)}
+  to {backdrop-filter: hue-rotate(360deg)}
 }

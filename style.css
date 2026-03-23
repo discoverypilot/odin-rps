@@ -107,6 +107,7 @@ p {
 #buttons img {
   width: 64px;
   order: -1;
+  pointer-events: none;
 }
 
 #results img {
@@ -128,7 +129,7 @@ p {
   font-weight: bold;
 }
 
-#retry {
+#retryBtn {
   background-color: white;
   color: black;
   border: 2px solid black;

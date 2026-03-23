@@ -1,6 +1,6 @@
-# odin-rps
-5 rounds of rock paper scissors played vs. the computer in the developer console. Whoever wins the most in a play all 5 set wins.
+# odin-rps v2
+Rock paper scissors played vs. the computer; first to 5 points wins.
 
-Will implement GUI later.
+(Now with a UI, instead of being played in the developer console!)
 
 Made to get a hang of Javascript as part of the Odin Project Foundations course.

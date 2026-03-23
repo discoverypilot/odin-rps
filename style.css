@@ -96,6 +96,10 @@ p {
   flex: 1 0 33%;
   max-width: 33%;
   font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .rockIcon {
@@ -107,9 +111,8 @@ p {
 }
 
 #buttons img {
-  display: block;
   width: 64px;
-  margin: auto;
+  order: -1;
 }
 
 #results img {
@@ -140,15 +143,16 @@ p {
   cursor: pointer;
   padding: 10px;
   display: flex;
-  gap: 5px;
   justify-content: center;
   align-items: center;
+  gap: 5px;
   margin: auto;
   font-weight: bold;
 }
 
 #retryImg {
   width: 32px;
+  order: -1;
 }
 
 @keyframes shift {

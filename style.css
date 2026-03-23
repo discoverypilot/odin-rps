@@ -13,6 +13,11 @@
  font-family: "main";
 }
 
+a {
+  color: teal;
+  font-weight: bold;
+}
+
 body {
   background-image: url("resources/bg.png");
   background-size: 128px;
@@ -145,7 +150,7 @@ p {
   font-weight: bold;
 }
 
-#retryImg {
+#retryBtn img {
   width: 32px;
   order: -1;
 }

@@ -1,23 +1,3 @@
-/* 
-general outline so my structure isnt ass
-
-game screen:
-- title: rock paper scissors
-- text: make your move!
-- 3 buttons: rock, paper, scissors
-  - show on each new round
-  - hide after move selection (in eventListener
-    switch case)
-- round result div
-  - show player move, cpu move, result, scores
-  - clear at the end of each round
-- running score div
-  - keep score here
-  - when a score reaches 5:
-    - announce winner
-    - display play again button (refreshes game)
-*/
-
 /* ----------------- VARIABLES ------------------ */
 
 const gameWindow = document.querySelector("#gameWindow");
@@ -25,6 +5,37 @@ const gameWindow = document.querySelector("#gameWindow");
 const rockBtn = document.querySelector("#rockBtn");
 const paperBtn = document.querySelector("#paperBtn");
 const scissorsBtn = document.querySelector("#scissorsBtn");
+
+const resultsBox = document.createElement("div");
+resultsBox.setAttribute("id", "results");
+const humanChoicePara = document.createElement("p");
+humanChoicePara.textContent = "You chose: ";
+const computerChoicePara = document.createElement("p");
+computerChoicePara.textContent = "Computer chose: ";
+const humanChoiceSpan = document.createElement("span");
+const computerChoiceSpan = document.createElement("span");
+const roundWinnerPara = document.createElement("p");
+
+humanChoicePara.appendChild(humanChoiceSpan);
+computerChoicePara.appendChild(computerChoiceSpan);
+resultsBox.appendChild(humanChoicePara);
+resultsBox.appendChild(computerChoicePara);
+resultsBox.appendChild(roundWinnerPara);
+
+const scoreBox = document.createElement("div");
+scoreBox.setAttribute("id", "score");
+const scorePara = document.createElement("p");
+const gameWinnerPara = document.createElement("p");
+
+scoreBox.appendChild(scorePara);
+
+const retryBtn = document.createElement("button");
+retryBtn.setAttribute("id", "retryBtn");
+const retryIcon = document.createElement("img");
+retryIcon.setAttribute("src", "resources/retry.png");
+retryIcon.setAttribute("alt", "");
+retryBtn.textContent = "RETRY";
+retryBtn.appendChild(retryIcon);
 
 let humanChoice = "";
 let hasChosenMove = false;
@@ -51,13 +62,12 @@ gameWindow.addEventListener('click', (Event) => {
         break;
     }
     hasChosenMove = true;
-    console.log(humanChoice);
     playRound(humanChoice);
     }
 
   switch(target.id) {
     case 'retryBtn':
-      // restart game
+      resetGame();
       break;
     }
 });
@@ -84,34 +94,90 @@ function getComputerChoice() {
 function playRound() {
   let computerChoice = getComputerChoice();
 
-  if (humanChoice == computerChoice) {
-    console.log("tie");
+  showRoundResults();
+  showScore();
+
+  function showRoundResults() {
+    switch (humanChoice) {
+      case "rock":
+        humanChoiceSpan.textContent = "ROCK";
+        humanChoiceSpan.setAttribute("class", "rockTxt");
+        break;
+      case "paper":
+        humanChoiceSpan.textContent = "PAPER";
+        humanChoiceSpan.setAttribute("class", "paperTxt");
+        break;
+      case "scissors":
+        humanChoiceSpan.textContent = "SCISSORS";
+        humanChoiceSpan.setAttribute("class", "scissorsTxt");
+        break;
+    }
+
+    switch (computerChoice) {
+      case "rock":
+        computerChoiceSpan.textContent = "ROCK";
+        computerChoiceSpan.setAttribute("class", "rockTxt");
+        break;
+      case "paper":
+        computerChoiceSpan.textContent = "PAPER";
+        computerChoiceSpan.setAttribute("class", "paperTxt");
+        break;
+      case "scissors":
+        computerChoiceSpan.textContent = "SCISSORS";
+        computerChoiceSpan.setAttribute("class", "scissorsTxt");
+        break;
+    }
+    
+    if (humanChoice == computerChoice) {
+      roundWinnerPara.textContent = "You tied.";
+    }
+    else if (humanChoice === "rock" && computerChoice === "scissors" ||
+            humanChoice === "paper" && computerChoice === "rock" || 
+            humanChoice === "scissors" && computerChoice === "paper") {
+      roundWinnerPara.textContent = "You win!";
+      humanScore++;
+    }
+    else if (humanChoice === "rock" && computerChoice === "paper" ||
+            humanChoice === "paper" && computerChoice === "scissors" || 
+            humanChoice === "scissors" && computerChoice === "rock") {
+      roundWinnerPara.textContent = "You lose.";
+      computerScore++;
+    }
+    gameWindow.appendChild(resultsBox);
   }
-  else if (humanChoice === "rock" && computerChoice === "scissors" ||
-           humanChoice === "paper" && computerChoice === "rock" || 
-           humanChoice === "scissors" && computerChoice === "paper") {
-    console.log("Round " + round + ": " + "You win! Your " + humanChoice + " beats computer's " + computerChoice + ".");
-    humanScore++;
-  }
-  else if (humanChoice === "rock" && computerChoice === "paper" ||
-           humanChoice === "paper" && computerChoice === "scissors" || 
-           humanChoice === "scissors" && computerChoice === "rock") {
-    console.log("Round " + round + ": " + "You lose. Computer's " + computerChoice + " beats your " + humanChoice + ".");
-    computerScore++;
-  }
-  else {
-    console.log("Error deciding a winner.");
+
+  function showScore() {
+    scorePara.textContent = "Score: " + humanScore + "-" + computerScore;
+
+    if (humanScore == 5) {
+      gameWinnerPara.textContent = "You win! Play again?";
+      scoreBox.appendChild(gameWinnerPara);
+      scoreBox.appendChild(retryBtn);
+    }
+    else if (computerScore == 5) {
+      gameWinnerPara.textContent = "Computer wins! Play again?";
+      scoreBox.appendChild(gameWinnerPara);
+      scoreBox.appendChild(retryBtn);
+    }
+
+    gameWindow.appendChild(scoreBox);
   }
 
   hasChosenMove = false;
   humanChoice = "";
   round++;
+}
 
-  if (humanScore == 5) {
-    console.log("you win!");
-  }
-  else if (computerScore == 5) {
-    console.log("computer wins!");
-  }
+function resetGame() {
+  humanChoice = "";
+  hasChosenMove = false;
 
-  }
+  humanScore = 0;
+  computerScore = 0; 
+  round = 1;
+
+  scoreBox.removeChild(gameWinnerPara);
+  scoreBox.removeChild(retryBtn);
+  gameWindow.removeChild(resultsBox);
+  gameWindow.removeChild(scoreBox);
+}

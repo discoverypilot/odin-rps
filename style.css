@@ -15,7 +15,7 @@
   src: url(resources/Gaegu-Light.ttf);
 }
 
-body {
+html {
   background-image: url("resources/bg.png");
   background-size: 128px;
   animation: shift 10s linear;

@@ -95,6 +95,7 @@ p {
   padding: 10px;
   flex: 1 0 33%;
   max-width: 33%;
+  font-weight: bold;
 }
 
 .rockIcon {
@@ -143,9 +144,10 @@ p {
   justify-content: center;
   align-items: center;
   margin: auto;
+  font-weight: bold;
 }
 
-#retryimg {
+#retryImg {
   width: 32px;
 }
 

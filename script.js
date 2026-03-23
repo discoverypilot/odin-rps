@@ -34,10 +34,13 @@ const buttonsBox = document.createElement('div');
 buttonsBox.setAttribute("id", "buttons");
 
 const rockBtn = document.createElement('button');
+rockBtn.textContent = "ROCK";
 rockBtn.setAttribute("id", "rockBtn");
 const paperBtn = document.createElement('button');
+paperBtn.textContent = "PAPER";
 paperBtn.setAttribute("id", "paperBtn");
 const scissorsBtn = document.createElement('button');
+scissorsBtn.textContent = "SCISSORS";
 scissorsBtn.setAttribute("id", "scissorsBtn");
 
 const rockIcon = document.createElement('img');
@@ -73,6 +76,8 @@ const computerScoreText = document.createElement('p');
 
 const winnerText = document.createElement('p');
 const retryBtn = document.createElement('button');
+retryBtn.setAttribute("id", "retry");
+retryBtn.textContent = "RETRY";
 const retryImg = document.createElement('img');
 retryImg.setAttribute("src", "resources/retry.png");
 retryImg.setAttribute("alt", "");
@@ -80,7 +85,7 @@ retryImg.setAttribute("id", "retryImg");
 
 /* ---------- DOM PARENTING TEST ZONE ------------ */
 
-// buttons
+// choice buttons
 rockBtn.appendChild(rockIcon);
 paperBtn.appendChild(paperIcon);
 scissorsBtn.appendChild(scissorsIcon);
@@ -110,6 +115,10 @@ winnerText.textContent = "Winner: you!";
 scoreBox.appendChild(playerScoreText);
 scoreBox.appendChild(computerScoreText);
 scoreBox.appendChild(winnerText);
+
+retryBtn.appendChild(retryImg);
+scoreBox.appendChild(retryBtn);
+
 gameWindow.appendChild(scoreBox);
 
 /* --------------- HANDLE CLICKS ---------------- */

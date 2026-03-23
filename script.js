@@ -21,10 +21,103 @@ game screen:
 /* ---------------- TESTING ------------------ */
 // playGame();
 
-/* ------------- USER INTERFACE -------------- */
-const RPSButtons = document.querySelector('.RPSButtons');
+/* ---------- CREATE DOM ELEMENTS ------------ */
+const gameWindow = document.querySelector('#gameWindow');
 
-RPSButtons.addEventListener('click', (Event) => {
+const moveSelectBox = document.createElement('div');
+moveSelectBox.setAttribute("id", "move");
+
+const moveSelectText = document.createElement('p');
+moveSelectText.textContent = "Make your move:";
+
+const buttonsBox = document.createElement('div');
+buttonsBox.setAttribute("id", "buttons");
+
+const rockBtn = document.createElement('button');
+rockBtn.setAttribute("id", "rockBtn");
+const paperBtn = document.createElement('button');
+paperBtn.setAttribute("id", "paperBtn");
+const scissorsBtn = document.createElement('button');
+scissorsBtn.setAttribute("id", "scissorsBtn");
+
+const rockIcon = document.createElement('img');
+rockIcon.setAttribute("src", "resources/rock.png");
+rockIcon.setAttribute("alt", "");
+rockIcon.setAttribute("class", "rockIcon");
+const paperIcon = document.createElement('img');
+paperIcon.setAttribute("src", "resources/paper.png");
+paperIcon.setAttribute("alt", "");
+paperIcon.setAttribute("class", "paperIcon");
+const scissorsIcon = document.createElement('img');
+scissorsIcon.setAttribute("src", "resources/scissors.png");
+scissorsIcon.setAttribute("alt", "");
+scissorsIcon.setAttribute("class", "scissorsIcon");
+
+const resultsBox = document.createElement('div');
+resultsBox.setAttribute("id", "results");
+
+const playerChoicePara = document.createElement('p');
+const playerChoiceSpan = document.createElement('span');
+const playerChoiceIcon = document.createElement('img');
+playerChoiceIcon.setAttribute("alt", "");
+
+const computerChoicePara = document.createElement('p');
+const computerChoiceSpan = document.createElement('span');
+const computerChoiceIcon = document.createElement('img');
+computerChoiceIcon.setAttribute("alt", "");
+
+const scoreBox = document.createElement('div');
+scoreBox.setAttribute("id", "score");
+const playerScoreText = document.createElement('p');
+const computerScoreText = document.createElement('p');
+
+const winnerText = document.createElement('p');
+const retryBtn = document.createElement('button');
+const retryImg = document.createElement('img');
+retryImg.setAttribute("src", "resources/retry.png");
+retryImg.setAttribute("alt", "");
+retryImg.setAttribute("id", "retryImg");
+
+/* ---------- DOM PARENTING TEST ZONE ------------ */
+
+// buttons
+rockBtn.appendChild(rockIcon);
+paperBtn.appendChild(paperIcon);
+scissorsBtn.appendChild(scissorsIcon);
+
+buttonsBox.appendChild(rockBtn);
+buttonsBox.appendChild(paperBtn);
+buttonsBox.appendChild(scissorsBtn);
+
+moveSelectBox.appendChild(moveSelectText);
+moveSelectBox.appendChild(buttonsBox);
+
+gameWindow.appendChild(moveSelectBox);
+
+// results
+playerChoicePara.textContent = "Your choice: ";
+computerChoicePara.textContent = "Computer's choice: ";
+
+resultsBox.appendChild(playerChoicePara);
+resultsBox.appendChild(computerChoicePara);
+
+gameWindow.appendChild(resultsBox);
+
+// score
+playerScoreText.textContent = "Your score: ";
+computerScoreText.textContent = "Computer's score: ";
+winnerText.textContent = "Winner: you!";
+scoreBox.appendChild(playerScoreText);
+scoreBox.appendChild(computerScoreText);
+scoreBox.appendChild(winnerText);
+gameWindow.appendChild(scoreBox);
+
+/* --------------- HANDLE CLICKS ---------------- */
+
+// commenting out all of this to just focus on the DOM for now
+/*
+
+gameWindow.addEventListener('click', (Event) => {
   Event.preventDefault();
   let target = Event.target;
   let choice = -1;
@@ -43,7 +136,7 @@ RPSButtons.addEventListener('click', (Event) => {
   console.log(choice);
 });
 
-/* --------------- GAME LOGIC ---------------- */
+/* --------------- GAME LOGIC ---------------- */ /*
 function getComputerChoice() {
   let randomNumber = Math.floor((Math.random()*3));
   let choice = "";
@@ -101,3 +194,5 @@ function playGame() {
     }
   }
 }
+
+*/

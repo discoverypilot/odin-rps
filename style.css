@@ -15,12 +15,13 @@
   src: url(resources/Gaegu-Light.ttf);
 }
 
-html {
+body {
   background-image: url("resources/bg.png");
   background-size: 128px;
   animation: shift 10s linear;
   animation-iteration-count: infinite;
   margin: 0px;
+  min-height: 100vh;
 }
 
 * {
@@ -78,7 +79,6 @@ p {
 
 #buttons button {
   background-color: white;
-  border: 0px;
   font-size: 20px;
   border: 3px solid black;
   border-radius: 20px;
@@ -88,11 +88,11 @@ p {
   max-width: 33%;
 }
 
-#rock img, .rockimg {
+.rockIcon {
   filter: hue-rotate(160deg);
 }
 
-#scissors img, .scissorsimg {
+.scissorsIcon {
   filter: hue-rotate(-60deg);
 }
 
@@ -141,9 +141,12 @@ p {
 }
 
 @keyframes shift {
-  from {background-position: 0px 0px;}
-  to {background-position: 128px 128px;}
-
-  from {backdrop-filter: hue-rotate(0deg)}
-  to {backdrop-filter: hue-rotate(360deg)}
+  from {
+    background-position: 0px 0px;
+    backdrop-filter: hue-rotate(0deg)
+  }
+  to {
+    background-position: 128px 128px;
+    backdrop-filter: hue-rotate(360deg);
+  }
 }

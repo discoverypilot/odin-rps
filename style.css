@@ -9,12 +9,6 @@
   src: url(resources/Gaegu-Bold.ttf);
 }
 
-@font-face {
-  font-family: "main";
-  font-weight: lighter;
-  src: url(resources/Gaegu-Light.ttf);
-}
-
 * {
  font-family: "main";
 }

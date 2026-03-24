@@ -88,13 +88,12 @@ p {
 #buttons button {
   background-color: white;
   font-size: 20px;
+  font-weight: bold;
   border: 3px solid black;
   border-radius: 20px;
-  cursor: pointer;
   padding: 10px;
+  cursor: pointer;
   flex: 1 0 33%;
-  max-width: 33%;
-  font-weight: bold;
   display: flex;
   flex-direction: column;
   justify-content: center;
